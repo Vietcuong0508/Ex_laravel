@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\LayoutController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,9 +14,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
 Route::get('/index', function () {
     return view('index');
 });
@@ -31,3 +29,5 @@ Route::get('/data-handle/quey-string', [App\Http\Controllers\DataHandleControlle
 Route::get('data-handle/form', [App\Http\Controllers\DataHandleController::class, 'handleForm']);
 
 Route::post('data-handle/form', [App\Http\Controllers\DataHandleController::class, 'processForm']);
+
+Route::get('', [LayoutController::class, 'masterLayout']);
